@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="logo" href="images/logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery | Kamelilo Day Secondary School</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e6f0ff;
+    }
+
+    header {
+      background-color: #002244;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: url('images/gallery.jpeg') no-repeat center center/cover;
+      height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .gallery-section {
+      padding: 60px 40px;
+      background-color: #fff;
+    }
+
+    .gallery-section h2 {
+      color: #002244;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+
+    .lightbox .close,
+    .prev,
+    .next {
+      color: white;
+      font-size: 30px;
+      position: absolute;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    .lightbox .close {
+      top: 20px;
+      right: 30px;
+    }
+
+    .lightbox .prev {
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox .next {
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    footer {
+      background-color: #002244;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 40px 20px;
+    }
+
+    footer .footer-col {
+      flex: 1;
+      min-width: 200px;
+      margin: 10px;
+    }
+
+    footer h4 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      margin: 4px 0;
+    }
+
+    .social-icons a {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+    .copyright {
+      text-align: center;
+      background-color: #002244;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <img src="images/logo.png" alt="Kamelilo Logo">
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="academics.html">Academics</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="alumni.html">Alumni</a>
+    <a href="committee.html">Committee</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="wall-of-fame.html">Wall of Fame</a>
+    <a href="events.html">Events</a>
+    <a href="blog.html">Blog</a>
+    <a href="downloads.html">Downloads</a>
+    <a href="contact.html">Contact</a>
+    <a href="careers.html">Careers</a>
+    <a href="student-life.html">Student Life</a>
+  </nav>
+</header>
+
+<section class="hero">
+  
+</section>
+
+<section class="gallery-section">
+  <h2>Captured Memories at Kamelilo</h2>
+  <div class="gallery-grid">
+    <img src="images/img1.jpg" alt="Event 1">
+    <img src="images/img2.jpg" alt="Event 2">
+    <img src="images/img3.jpg" alt="Event 3">
+    <img src="images/img4.jpg" alt="Event 4">
+    <img src="images/img5.jpg" alt="Event 5">
+    <img src="images/img6.jpg" alt="Event 6">
+    <img src="images/img7.jpg" alt="Event 7">
+    <img src="images/img8.jpg" alt="Event 8">
+    <img src="images/img7.jpg" alt="Event 7">
+    <img src="images/img8.jpg" alt="Event 8">
+   </div>
+</section>
+
+<!-- Lightbox Viewer -->
+<div class="lightbox" id="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <span class="prev" onclick="prevImage()">❮</span>
+  <img id="lightbox-img" src="" alt="">
+  <span class="next" onclick="nextImage()">❯</span>
+</div>
+
+<footer>
+  <div class="footer-col">
+    <img src="images/logo.png" alt="Kamelilo Logo" width="100"><br><br>
+    <strong>Kamelilo Day Secondary School</strong><br>
+    P.O Box 1234, Kenya<br>
+    Email: info@kamelilo-school.ac.ke<br>
+    Phone: +254 712 345 678
+  </div>
+
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <a href="downloads.html">Downloads</a>
+    <a href="events.html">Events</a>
+    <a href="careers.html">Careers</a>
+  </div>
+
+  <div class="footer-col">
+    <h4>Follow Us</h4>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
+     
+    </div>
+  </div>
+</footer>
+
+<div class="copyright">
+  © 2025 Kamelilo Day Secondary School. All rights reserved.
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const galleryImages = document.querySelectorAll('.gallery-grid img');
+  let currentIndex = 0;
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+      currentIndex = index;
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].src;
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].src;
+  }
+
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+  });
+</script>
+
+</body>
+</html>
