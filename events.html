@@ -153,6 +153,59 @@
       padding: 15px;
       font-size: 14px;
     }
+
+    /* ---------- MOBILE MENU STYLES ---------- */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #002244;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 80%;
+        padding: 20px;
+        border-radius: 10px 0 0 10px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        display: block;
+        padding: 10px 0;
+        text-align: right;
+        color: white;
+      }
+
+      .burger-menu {
+        display: block;
+        cursor: pointer;
+      }
+
+      .burger-menu span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 5px 0;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .burger-menu.active .bar1 {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .burger-menu.active .bar2 {
+        opacity: 0;
+      }
+
+      .burger-menu.active .bar3 {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -161,6 +214,14 @@
   <div>
     <img src="images/logo.jpg" alt="Kamelilo Logo">
   </div>
+
+  <!-- 🔹 BURGER MENU BUTTON -->
+  <div class="burger-menu" id="burger-menu">
+    <span class="bar1"></span>
+    <span class="bar2"></span>
+    <span class="bar3"></span>
+  </div>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -179,10 +240,7 @@
   </nav>
 </header>
 
-<section class="hero">
- 
-  
-</section>
+<section class="hero"></section>
 
 <!-- Event 1 -->
 <div class="event-section">
@@ -236,8 +294,7 @@
     <h4>Follow Us</h4>
     <div class="social-icons">
       <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
-     
+      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
   </div>
 </footer>
@@ -275,7 +332,15 @@
   }
 
   window.onload = startCountdowns;
+
+  // 🔹 BURGER MENU TOGGLE
+  const burger = document.getElementById('burger-menu');
+  const nav = document.querySelector('nav');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    nav.classList.toggle('active');
+  });
 </script>
 
 </body>
-</html>  .. im i going to replace with the php?
+</html>
