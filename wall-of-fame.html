@@ -38,6 +38,12 @@
       font-weight: bold;
     }
 
+    .menu-toggle {
+      display: none; /* hidden on desktop */
+      font-size: 24px;
+      cursor: pointer;
+    }
+
     .hero {
       background: url('images/pngtree-red-hall-of-fame-honors-template-poster-background-material-picture-image_1046190.jpg') no-repeat center center/cover;
       height: 250px;
@@ -154,7 +160,7 @@
       font-size: 14px;
     }
 
-    /* Mobile styles matching About Us page */
+    /* Mobile Responsive Styles */
     @media (max-width: 768px) {
       nav {
         display: none;
@@ -175,8 +181,6 @@
 
       .menu-toggle {
         display: block;
-        font-size: 24px;
-        cursor: pointer;
       }
 
       nav a {
@@ -185,13 +189,9 @@
         margin: 0;
       }
     }
-
-    /* Hide menu toggle on desktop */
-    .menu-toggle {
-      display: none;
-    }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -199,7 +199,7 @@
     <img src="images/logo.png" alt="Kamelilo Logo" />
   </div>
 
-  <!-- Hamburger menu icon -->
+  <!-- Hamburger menu for mobile -->
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
   <nav>
@@ -234,25 +234,25 @@
     <summary>Principals</summary>
     <div class="grid">
       <div class="person">
-        <img src="images/logo.jpg" alt="Principal ">
+        <img src="images/logo.jpg" alt="Principal">
         <h4>Mr. Henry Limo</h4>
         <span>2002 Jan - 2002 Dec</span>
       </div>
       <div class="person">
-        <img src="images/logo.jpg" alt="Principal ">
+        <img src="images/logo.jpg" alt="Principal">
         <h4>Mr. Benjamin Kimitei</h4>
         <span>2003 - 2008</span>
       </div>
-    </div>
-    <div class="person">
-      <img src="images/logo.jpg" alt="Principal ">
-      <h4>Mr. Daniel Rotich</h4>
-      <span>2009-2019</span>
-    </div>
-    <div class="person">
-      <img src="images/logo.jpg" alt="Principal ">
-      <h4>M/s Catherine Nyambura</h4>
-      <span>2020-2023</span>
+      <div class="person">
+        <img src="images/logo.jpg" alt="Principal">
+        <h4>Mr. Daniel Rotich</h4>
+        <span>2009-2019</span>
+      </div>
+      <div class="person">
+        <img src="images/logo.jpg" alt="Principal">
+        <h4>M/s Catherine Nyambura</h4>
+        <span>2020-2023</span>
+      </div>
     </div>
   </details>
 
@@ -261,16 +261,29 @@
     <summary>Retired Deputy Principals</summary>
     <div class="grid">
       <div class="person">
-        <img src="images/logo.jpg" alt="Deputy ">
+        <img src="images/logo.jpg" alt="Deputy">
         <h4>Mr Bowen Cheruiyot</h4>
         <span>2021 - 2024</span>
       </div>
-    </div>
-    <div class="grid">
       <div class="person">
-        <img src="images/logo.jpg" alt="Deputy ">
+        <img src="images/logo.jpg" alt="Deputy">
         <h4>Ms Doreen Kbutbei</h4>
         <span>2017 - 2021</span>
+      </div>
+      <div class="person">
+        <img src="images/logo.jpg" alt="Deputy">
+        <h4>Ms Jenifer Too</h4>
+        <span>2012 - 2017</span>
+      </div>
+      <div class="person">
+        <img src="images/logo.jpg" alt="Deputy">
+        <h4>Mr David Tuitoek</h4>
+        <span>2010 - 2012</span>
+      </div>
+      <div class="person">
+        <img src="images/logo.jpg" alt="Deputy">
+        <h4>Mr Jeremiah Chepkonga</h4>
+        <span>2003 - 2010</span>
       </div>
     </div>
   </details>
@@ -319,7 +332,7 @@
   <div class="footer-col">
     <h4>Follow Us</h4>
     <div class="social-icons">
-      <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
+       <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
       <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
   </div>
