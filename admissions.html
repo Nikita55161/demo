@@ -208,13 +208,10 @@
       <img src="images/logo.jpg" alt="Kamelilo Logo">
     </div>
 
-    <!-- ✅ HAMBURGER ICON -->
-    <div class="menu-toggle" id="mobile-menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
+    <!-- HAMBURGER ICON -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+       </div>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -318,12 +315,9 @@
     © 2025 Kamelilo Day Secondary School. All rights reserved.
   </div>
 
-  <!-- ✅ MOBILE MENU SCRIPT -->
-  <script>
-    const mobileMenu = document.getElementById('mobile-menu');
-    const nav = document.querySelector('nav');
-    mobileMenu.addEventListener('click', () => {
-      nav.classList.toggle('active');
+    // Mobile Menu Toggle
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.getElementById('nav-menu').classList.toggle('active');
     });
   </script>
 </body>
