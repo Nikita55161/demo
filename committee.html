@@ -18,7 +18,7 @@
       background-color: #002244;
       color: white;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       padding: 10px 30px;
       position: sticky;
@@ -35,6 +35,42 @@
       margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    /* --- MOBILE NAVIGATION TOGGLE --- */
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #002244;
+        width: 100%;
+        text-align: center;
+      }
+
+      nav a {
+        display: block;
+        padding: 10px 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      header {
+        justify-content: space-between;
+      }
     }
 
     .intro {
@@ -155,7 +191,13 @@
     <div>
       <img src="images/logo.jpg" alt="Kamelilo Logo">
     </div>
-    <nav>
+
+    <!-- HAMBURGER ICON -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <nav id="nav-menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="academics.html">Academics</a>
@@ -174,7 +216,6 @@
   </header>
 
   <div class="intro">
-    
     <p>
       At Kamelilo Day Secondary School, leadership is anchored in values, responsibility, and student-centered service. Get to know the people behind the decisions that guide our school's growth and success.
     </p>
@@ -184,7 +225,7 @@
     <h2>Principal</h2>
     <div class="person">
       <img src="images/Picture2.jpg" alt="Principal Photo">
-      <h3> Mr Kiprotich Yatich</h3>
+      <h3>Mr Kiprotich Yatich</h3>
       <p>Principal, Kamelilo Day Secondary School</p>
     </div>
   </section>
@@ -194,7 +235,7 @@
     <div class="group">
       <div class="person">
         <img src="images/logo.png" alt="Grace Otieno">
-        <h3> Ms Susan Cheruiyot</h3>
+        <h3>Ms Susan Cheruiyot</h3>
         <p>Deputy Principal</p>
       </div>
       <div class="person">
@@ -280,8 +321,7 @@
       <h4>Follow Us</h4>
       <div class="social-icons">
         <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
-     
+        <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       </div>
     </div>
   </footer>
@@ -291,10 +331,16 @@
   </div>
 
   <script>
+    // Toggle Support Staff
     function toggleSupport() {
       const support = document.getElementById("supportStaff");
       support.style.display = support.style.display === "none" || support.style.display === "" ? "block" : "none";
     }
+
+    // Mobile Menu Toggle
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.getElementById('nav-menu').classList.toggle('active');
+    });
   </script>
 
 </body>
