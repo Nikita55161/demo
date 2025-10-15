@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admissions | Kamelilo Day Secondary School</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     body {
       margin: 0;
@@ -35,6 +36,44 @@
       margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    /* ✅ HAMBURGER MENU STYLES */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #002244;
+      }
+
+      nav a {
+        padding: 10px;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav.active {
+        display: flex;
+      }
     }
 
     /* --- HERO / BANNER SECTION --- */
@@ -191,6 +230,14 @@
     <div>
       <img src="images/logo.jpg" alt="Kamelilo Logo">
     </div>
+
+    <!-- ✅ HAMBURGER ICON ADDED -->
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -209,9 +256,7 @@
     </nav>
   </header>
 
-  <section class="hero">
-  
-  </section>
+  <section class="hero"></section>
 
   <section class="section">
     <div class="text">
@@ -233,9 +278,7 @@
   <section class="section">
     <div class="text">
       <h2>How to Apply</h2>
-      <p>
-        Admission is open throughout the year subject to space availability. Follow these steps:
-      </p>
+      <p>Admission is open throughout the year subject to space availability. Follow these steps:</p>
       <ul>
         <li>Download or collect an admission form</li>
         <li>Fill the form and attach required documents</li>
@@ -251,9 +294,7 @@
   <section class="section">
     <div class="text">
       <h2>Why Choose Kamelilo?</h2>
-      <p>
-        Kamelilo Day Secondary School is a nurturing environment for learners to grow intellectually and morally. We offer:
-      </p>
+      <p>Kamelilo Day Secondary School is a nurturing environment for learners to grow intellectually and morally. We offer:</p>
       <ul>
         <li>Excellent academic performance</li>
         <li>Qualified and committed teaching staff</li>
@@ -295,6 +336,15 @@
   <div class="copyright">
     © 2025 Kamelilo Day Secondary School. All rights reserved.
   </div>
+
+  <!-- ✅ MOBILE MENU SCRIPT -->
+  <script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const nav = document.querySelector('nav');
+    mobileMenu.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 
 </body>
 </html>
