@@ -36,6 +36,57 @@
       font-weight: bold;
     }
 
+    /* ---------- MOBILE MENU STYLES ---------- */
+    .burger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .burger-menu span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #002244;
+        width: 80%;
+        padding: 20px;
+        border-radius: 10px 0 0 10px;
+        animation: slideIn 0.3s ease forwards;
+      }
+
+      @keyframes slideIn {
+        from { opacity: 0; transform: translateX(100%); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .burger-menu {
+        display: flex;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px 0;
+        font-size: 18px;
+        text-align: right;
+      }
+    }
+
     .hero {
       background: url('images/contact.jpeg') no-repeat center center/cover;
       height: 250px;
@@ -124,9 +175,6 @@
       font-size: 14px;
     }
 
-    /* --------------------------- */
-    /* Improved Contact Form Style */
-    /* --------------------------- */
     .contact-form {
       background-color: #f8faff;
       padding: 30px 25px;
@@ -196,7 +244,15 @@
   <div>
     <img src="images/logo.jpg" alt="Kamelilo Logo">
   </div>
-  <nav>
+
+  <!-- Burger menu -->
+  <div class="burger-menu" id="burger-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="academics.html">Academics</a>
@@ -214,92 +270,13 @@
   </nav>
 </header>
 
-<section class="hero">
-  <h1 id="typewriter" class="typewriter"></h1>
+<!-- Toggle Script -->
+<script>
+  const burger = document.getElementById('burger-menu');
+  const nav = document.getElementById('nav-links');
 
-  <script>
-    const text = "";
-    let i = 0;
-
-    function typeEffect() {
-      if (i < text.length) {
-        document.getElementById("typewriter").textContent += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, 100);
-      }
-    }
-
-    window.onload = typeEffect;
-  </script>
-
-  <style>
-    .typewriter {
-      display: inline-block;
-      border-right: 2px solid #002244;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: blinkCursor 0.7s infinite;
-      font-size: 2em;
-      color: #002244;
-      font-family: monospace;
-    }
-    @keyframes blinkCursor {
-      0%, 50% { border-color: #002244;}
-      51%, 100% { border-color: transparent; }
-    }
-  </style>
-</section>
-
-<section class="contact-section">
-  <div class="contact-info">
-    <h2>Contact Information</h2>
-    <p><i class="fas fa-map-marker-alt"></i> P.O Box 1234, Kenya</p>
-    <p><i class="fas fa-phone-alt"></i> +254 712 345 678</p>
-    <p><i class="fas fa-envelope"></i> info@kamelilo-school.ac.ke</p>
-    <p><i class="fas fa-clock"></i> Monday - Friday: 8:00am - 5:00pm</p>
-
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8162623675967!2d35.73557567496465!3d0.05819439994123639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1780a601a099b4a9%3A0x49f4ed2a0d03d99e!2sKamelilo%20day%20secondary%20school!5e0!3m2!1sen!2ske!4v1751812766315!5m2!1sen!2ske" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-
-  <div class="contact-form">
-    <h2>Send Us a Message</h2>
-    <form action="https://formspree.io/f/mvgwvjqy" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-col">
-    <img src="images/logo.png" alt="Kamelilo Logo" width="100"><br><br>
-    <strong>Kamelilo Day Secondary School</strong><br>
-    P.O Box 1234, Kenya<br>
-    Email: info@kamelilo-school.ac.ke<br>
-    Phone: +254 712 345 678
-  </div>
-
-  <div class="footer-col">
-    <h4>Quick Links</h4>
-    <a href="downloads.html">Downloads</a>
-    <a href="events.html">Events</a>
-    <a href="careers.html">Careers</a>
-  </div>
-
-  <div class="footer-col">
-    <h4>Follow Us</h4>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    </div>
-  </div>
-</footer>
-
-<div class="copyright">
-  © 2025 Kamelilo Day Secondary School. All rights reserved.
-</div>
-
-</body>
-</html>
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    burger.classList.toggle('active');
+  });
+</script>
