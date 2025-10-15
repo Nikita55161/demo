@@ -126,6 +126,67 @@
       padding: 15px;
       font-size: 14px;
     }
+
+    /* ---------- MOBILE MENU STYLES ---------- */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #002244;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 70%;
+        padding: 20px;
+        border-radius: 10px 0 0 10px;
+        animation: slideIn 0.3s ease forwards;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .burger-menu {
+        display: block;
+        width: 30px;
+        cursor: pointer;
+      }
+
+      .burger-menu span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: white;
+        margin: 5px 0;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .burger-menu.active .bar-one {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .burger-menu.active .bar-two {
+        opacity: 0;
+      }
+
+      .burger-menu.active .bar-three {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      @keyframes slideIn {
+        from { opacity: 0; transform: translateX(100%); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+
+      header {
+        flex-wrap: wrap;
+      }
+
+      header img {
+        height: 45px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -134,6 +195,14 @@
     <div>
       <img src="images/logo.png" alt="Kamelilo Logo">
     </div>
+
+    <!-- Added burger menu button -->
+    <div class="burger-menu">
+      <span class="bar-one"></span>
+      <span class="bar-two"></span>
+      <span class="bar-three"></span>
+    </div>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -153,7 +222,6 @@
   </header>
 
   <section class="about-hero">
-   
   </section>
 
   <!-- History Section -->
@@ -216,7 +284,6 @@
       <div class="social-icons">
          <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
       <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
-     
       </div>
     </div>
   </footer>
@@ -224,6 +291,19 @@
   <div class="copyright">
     © 2025 Kamelilo Day Secondary School. All rights reserved.
   </div>
+
+  <!-- ✅ Added JavaScript for toggle -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const burger = document.querySelector(".burger-menu");
+      const nav = document.querySelector("nav");
+
+      burger.addEventListener("click", function() {
+        burger.classList.toggle("active");
+        nav.classList.toggle("active");
+      });
+    });
+  </script>
 
 </body>
 </html>
