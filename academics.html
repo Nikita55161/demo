@@ -329,4 +329,32 @@
 
   <script>
     function toggleMenu() {
-      const nav
+      const nav = document.querySelector('nav');
+      nav.classList.toggle('active');
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const bars = document.querySelectorAll(".bar");
+      bars.forEach(bar => {
+        const target = +bar.getAttribute("data-target");
+        let width = 0;
+        const speed = target > 20 ? 10 : 50;
+
+        const update = () => {
+          if (width < target) {
+            width++;
+            bar.style.width = (width * 2) + "%";
+            bar.innerText = width;
+            setTimeout(update, speed);
+          } else {
+            bar.innerText = target;
+          }
+        };
+
+        update();
+      });
+    });
+  </script>
+
+</body>
+</html>
