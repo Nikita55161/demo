@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="logo" href="images/logo.png">
   <title>Wall of Fame | Kamelilo Day Secondary School</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  
+
   <style>
     body {
       margin: 0;
@@ -154,31 +153,31 @@
       padding: 15px;
       font-size: 14px;
     }
-  </style>
 
+    /* Hide nav links on mobile */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      #menu-btn {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
 
-
-  <!-- Mobile Menu Button -->
-  <button id="menu-btn" class="md:hidden text-2xl">
-    <i class="fa fa-bars"></i>
-  </button>
-</nav>
-
-<!-- Mobile Dropdown -->
-<div id="mobile-menu" class="hidden bg-blue-600 text-white p-4 md:hidden">
-  <a href="index.html" class="block py-2">Home</a>
-  <a href="about.html" class="block py-2">About</a>
-  <a href="admissions.html" class="block py-2">Admissions</a>
-  <a href="academics.html" class="block py-2">Academics</a>
-  <a href="gallery.html" class="block py-2">Gallery</a>
-  <a href="contact.html" class="block py-2">Contact</a>
-</div>
 <header>
   <div>
     <img src="images/logo.png" alt="Kamelilo Logo" />
   </div>
+
+  <!-- Hamburger button (visible on mobile) -->
+  <button id="menu-btn" class="text-white text-2xl md:hidden">
+    <i class="fa fa-bars"></i>
+  </button>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -197,9 +196,26 @@
   </nav>
 </header>
 
-<section class="hero">
-  
-</section>
+<!-- Mobile Dropdown -->
+<div id="mobile-menu" class="hidden bg-blue-800 text-white text-center p-4 md:hidden">
+  <a href="index.html" class="block py-2">Home</a>
+  <a href="about.html" class="block py-2">About</a>
+  <a href="academics.html" class="block py-2">Academics</a>
+  <a href="admissions.html" class="block py-2">Admissions</a>
+  <a href="alumni.html" class="block py-2">Alumni</a>
+  <a href="committee.html" class="block py-2">Committee</a>
+  <a href="gallery.html" class="block py-2">Gallery</a>
+  <a href="wall-of-fame.html" class="block py-2">Wall of Fame</a>
+  <a href="events.html" class="block py-2">Events</a>
+  <a href="blog.html" class="block py-2">Blog</a>
+  <a href="downloads.html" class="block py-2">Downloads</a>
+  <a href="contact.html" class="block py-2">Contact</a>
+  <a href="careers.html" class="block py-2">Careers</a>
+  <a href="student-life.html" class="block py-2">Student Life</a>
+</div>
+
+<section class="hero"></section>
+
 <p style="max-width: 800px; margin: 0 auto 30px; font-size: 16px; line-height: 1.6; color: #333;">
   The Wall of Fame honors the individuals who helped shape the legacy of Kamelilo Day Secondary School.
   From visionary principals and dedicated deputy principals to esteemed BOM chairs and other impactful leaders, 
@@ -251,27 +267,6 @@
         <span>2017 - 2021</span>
       </div>
     </div>
-    <div class="grid">
-      <div class="person">
-        <img src="images/logo.jpg" alt="Deputy ">
-        <h4>Ms jenifer Too</h4>
-        <span>2012 - 2017</span>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="person">
-        <img src="images/logo.jpg" alt="Deputy ">
-        <h4> Mr Dvid Tuitoek</h4>
-        <span>2010 - 2012</span>
-      </div>
-    </div>
-    <div>
-      <div class="person">
-        <img src="images/logo.jpg" alt="Deputy ">
-        <h4>Mr jeremiah Chepkonga</h4>
-        <span>2003 - 2010</span>
-      </div>
-    </div>
   </details>
 
   <!-- BOM Chairs -->
@@ -291,8 +286,8 @@
     <summary>Other Leaders</summary>
     <div class="grid">
       <div class="person">
-        <img src="images/logo.jpgs" alt="Founder">
-        <h4> Wilson Sigilai</h4>
+        <img src="images/logo.jpg" alt="Founder">
+        <h4>Wilson Sigilai</h4>
         <span>School Patron</span>
       </div>
     </div>
@@ -318,9 +313,8 @@
   <div class="footer-col">
     <h4>Follow Us</h4>
     <div class="social-icons">
-       <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
       <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
-     
     </div>
   </div>
 </footer>
@@ -329,29 +323,13 @@
   © 2025 Kamelilo Day Secondary School. All rights reserved.
 </div>
 
+<script>
+  // Mobile menu toggle
+  document.getElementById('menu-btn').addEventListener('click', () => {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+  });
+</script>
 
-  <!-- Mobile Menu Button -->
-  <button id="menu-btn" class="md:hidden text-2xl">
-    <i class="fa fa-bars"></i>
-  </button>
-</nav>
-
-<!-- Mobile Dropdown -->
-<div id="mobile-menu" class="hidden bg-blue-600 text-white p-4 md:hidden">
-  <a href="index.html" class="block py-2">Home</a>
-  <a href="about.html" class="block py-2">About</a>
-  <a href="admissions.html" class="block py-2">Admissions</a>
-  <a href="Alumni.html" class="block py-2">Academics</a>
-  <a href="gallery.html" class="block py-2">Gallery</a>
-  <a href="contact.html" class="block py-2">Contact</a>
-  <a href="academics.html" class="block py-2">Academics</a>
-  <a href="downloads.html" class="block py-2">Downloads</a>
-  <a href="wall-of-fame.html" class="block py-2">wall-of-fame</a>
-  <a href="student-life.html" class="block py-2">student-life</a>
-  <a href="events.html" class="block py-2">events</a>
-  <a href="committee.html" class="block py-2">committee</a>
-  <a href="careers.html" class="block py-2">careers</a>
-  <a href="blog.html" class="block py-2">blog</a>
-</div>
 </body>
 </html>
