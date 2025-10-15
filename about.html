@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
   <link rel="icon" type="logo" href="images/logo.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us | Kamelilo Day Secondary School</title>
@@ -15,17 +13,17 @@
       background-color: #e6f0ff;
     }
 
-     header {
-  background-color:  #002244;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    header {
+      background-color:  #002244;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
     header img {
       height: 50px;
@@ -36,6 +34,12 @@
       margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none; /* Hidden on desktop */
+      font-size: 24px;
+      cursor: pointer;
     }
 
     .about-hero {
@@ -126,33 +130,36 @@
       padding: 15px;
       font-size: 14px;
     }
+
     /* Responsive styles for mobile view */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    background-color: #002244;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 100%;
-    text-align: center;
-  }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #002244;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        max-height: 90vh; /* Limit height for scrolling */
+        overflow-y: auto;  /* Enable scroll */
+        text-align: center;
+      }
 
-  nav.active {
-    display: flex;
-  }
+      nav.active {
+        display: flex;
+      }
 
-  .menu-toggle {
-    display: block;
-  }
+      .menu-toggle {
+        display: block;
+      }
 
-  nav a {
-    padding: 15px 0;
-    border-top: 1px solid #004080;
-    margin: 0;
-  }
-}
+      nav a {
+        padding: 15px 0;
+        border-top: 1px solid #004080;
+        margin: 0;
+      }
+    }
 
   </style>
 </head>
@@ -162,8 +169,9 @@
     <div>
       <img src="images/logo.png" alt="Kamelilo Logo">
     </div>
-     <!-- Hamburger menu icon -->
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <!-- Hamburger menu icon -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -183,7 +191,6 @@
   </header>
 
   <section class="about-hero">
-   
   </section>
 
   <!-- History Section -->
@@ -191,7 +198,7 @@
     <div class="text">
       <h2>Our History</h2>
       <p>
-      Kamelilo community, driven by a vision for development, allocated land for a secondary school. In 2000, under Chief Pius Lebolos, the local development committee prioritized establishing the school to help bright students who couldn't afford boarding school fees. A committee was formed, and FEROZE Construction Company agreed to build the school in 2002. The first students (30 in total) began learning at Kamelilo Primary School's workshop before moving to the new site in 2003. Two classrooms and an administration block were completed that year. Staff started with 2 BOM teachers and now includes 21 TSC-employed teachers. Student numbers grew to 92 by the end of 2002. The school was provisionally registered in 2002 and later fully registered. The first KCSE class sat in 2005 with 44 candidates achieving a mean score of 3.3704. The initial steering committee was chaired by Mr. Wilson Sugial. The support staff grew from 3 to 15 over the years.
+        Kamelilo community, driven by a vision for development, allocated land for a secondary school. In 2000, under Chief Pius Lebolos, the local development committee prioritized establishing the school to help bright students who couldn't afford boarding school fees. A committee was formed, and FEROZE Construction Company agreed to build the school in 2002. The first students (30 in total) began learning at Kamelilo Primary School's workshop before moving to the new site in 2003. Two classrooms and an administration block were completed that year. Staff started with 2 BOM teachers and now includes 21 TSC-employed teachers. Student numbers grew to 92 by the end of 2002. The school was provisionally registered in 2002 and later fully registered. The first KCSE class sat in 2005 with 44 candidates achieving a mean score of 3.3704. The initial steering committee was chaired by Mr. Wilson Sugial. The support staff grew from 3 to 15 over the years.
       </p>
     </div>
     <div class="image">
@@ -207,7 +214,7 @@
     <div class="text">
       <h2>Recent Developments</h2>
       <p>
-       The school has made significant strides in improving its infrastructure and learning environment. It now has 15 classrooms, a fully equipped library, a cereal store, and a well-established administration block. Science learning has been enhanced through two functional laboratories. Water needs are met by 19 tanks (18 of 5,000L and 1 of 10,000L). Sanitation facilities include 20 toilets for girls, 16 for boys, 2 for teachers, and 2 urinals. Although the kitchen is still temporary, plans for its improvement are in place.The school currently shares an uneven playfield with the primary school but aims to develop its own. Security has improved with the installation of two gates (Gate A and Gate B), a life fence, and a security office. The staff room remains inadequate and is earmarked for future development. Overall, the school continues to prioritize infrastructure development to support quality education.
+        The school has made significant strides in improving its infrastructure and learning environment. It now has 15 classrooms, a fully equipped library, a cereal store, and a well-established administration block. Science learning has been enhanced through two functional laboratories. Water needs are met by 19 tanks (18 of 5,000L and 1 of 10,000L). Sanitation facilities include 20 toilets for girls, 16 for boys, 2 for teachers, and 2 urinals. Although the kitchen is still temporary, plans for its improvement are in place. The school currently shares an uneven playfield with the primary school but aims to develop its own. Security has improved with the installation of two gates (Gate A and Gate B), a life fence, and a security office. The staff room remains inadequate and is earmarked for future development. Overall, the school continues to prioritize infrastructure development to support quality education.
       </p>
     </div>
   </section>
@@ -217,7 +224,7 @@
     <div class="text">
       <h2>Current State</h2>
       <p>
-       The school has made notable progress in stabilizing its operations and strengthening academic and administrative structures. It now serves over 500 students with a balanced gender ratio and continues to show gradual improvement in KCSE performance. The teaching staff includes 21 TSC teachers supported by BOM staff, alongside 15 non-teaching staff handling various support roles. Key infrastructure includes 15 classrooms, 2 science labs, a library, an administration block, and adequate sanitation facilities. Water security is ensured by 19 water tanks. However, the school still relies on an uneven shared playfield, and the staff room remains inadequate. Security has improved through a life fence, two gates, and an operational security office, ensuring a safe learning environment.
+        The school has made notable progress in stabilizing its operations and strengthening academic and administrative structures. It now serves over 500 students with a balanced gender ratio and continues to show gradual improvement in KCSE performance. The teaching staff includes 21 TSC teachers supported by BOM staff, alongside 15 non-teaching staff handling various support roles. Key infrastructure includes 15 classrooms, 2 science labs, a library, an administration block, and adequate sanitation facilities. Water security is ensured by 19 water tanks. However, the school still relies on an uneven shared playfield, and the staff room remains inadequate. Security has improved through a life fence, two gates, and an operational security office, ensuring a safe learning environment.
       </p>
     </div>
     <div class="image">
@@ -245,8 +252,7 @@
       <h4>Follow Us</h4>
       <div class="social-icons">
          <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
-     
+      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       </div>
     </div>
   </footer>
@@ -254,12 +260,13 @@
   <div class="copyright">
     © 2025 Kamelilo Day Secondary School. All rights reserved.
   </div>
-<script>
-  function toggleMenu() {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('active');
-  }
-</script>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('nav');
+      nav.classList.toggle('active');
+    }
+  </script>
 
 </body>
 </html>
