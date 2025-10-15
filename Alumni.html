@@ -167,6 +167,60 @@
       padding: 15px;
       font-size: 14px;
     }
+
+    /* ---------- MOBILE MENU STYLES ---------- */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #002244;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 80%;
+        padding: 20px;
+        border-radius: 10px 0 0 10px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        display: block;
+        margin: 15px 0;
+        text-align: right;
+        font-size: 18px;
+      }
+
+      .burger-menu {
+        display: block;
+        width: 30px;
+        cursor: pointer;
+      }
+
+      .burger-menu span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: white;
+        margin: 5px 0;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .burger-menu.active .bar-one {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .burger-menu.active .bar-two {
+        opacity: 0;
+      }
+
+      .burger-menu.active .bar-three {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -175,12 +229,20 @@
   <div>
     <img src="images/logo.jpg" alt="Kamelilo Logo">
   </div>
-  <nav>
+
+  <!-- BURGER MENU ICON -->
+  <div class="burger-menu" id="burger-menu">
+    <span class="bar-one"></span>
+    <span class="bar-two"></span>
+    <span class="bar-three"></span>
+  </div>
+
+  <nav id="nav-menu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="academics.html">Academics</a>
     <a href="admissions.html">Admissions</a>
-    <a href="alumni.html">Alumni</a>
+    <a href="Alumni.html">Alumni</a>
     <a href="committee.html">Committee</a>
     <a href="gallery.html">Gallery</a>
     <a href="wall-of-fame.html">Wall of Fame</a>
@@ -193,9 +255,7 @@
   </nav>
 </header>
 
-<section class="hero">
- 
-</section>
+<section class="hero"></section>
 
 <section class="intro">
   <p>
@@ -211,8 +271,9 @@
     <div class="story">
       <h3>Elkanah Lemuya</h3>
       <p>Elkanah Lemuya, a proud alumnus of Kamelilo Day Secondary School, graduated in 2024 with an outstanding Grade A- (minus). His dedication, discipline, and passion for excellence made him one of the school’s top achievers that year.
-
-Today, Elkanah is pursuing a Bachelor of Science in Nursing at Karatina University, where he continues to embody the values of hard work, compassion, and service instilled at Kamelilo. His journey is a true reflection of determination and the transformative power of education — proving that with focus and resilience, success is within reach.</p>
+      <br><br>
+      Today, Elkanah is pursuing a Bachelor of Science in Nursing at Karatina University, where he continues to embody the values of hard work, compassion, and service instilled at Kamelilo. His journey is a true reflection of determination and the transformative power of education — proving that with focus and resilience, success is within reach.
+      </p>
     </div>
   </div>
 
@@ -258,8 +319,7 @@ Today, Elkanah is pursuing a Bachelor of Science in Nursing at Karatina Universi
     <h4>Follow Us</h4>
     <div class="social-icons">
        <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
-     
+      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> Whatsapp</a>
     </div>
   </div>
 </footer>
@@ -300,7 +360,17 @@ Today, Elkanah is pursuing a Bachelor of Science in Nursing at Karatina Universi
   }
 
   timer = setInterval(autoSlide, 4000);
+
+  // ---------- MOBILE MENU SCRIPT ----------
+  const burger = document.getElementById('burger-menu');
+  const navMenu = document.getElementById('nav-menu');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
 </script>
 
 </body>
 </html>
+
