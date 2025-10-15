@@ -173,10 +173,14 @@
       cursor: pointer;
     }
 
-    /* Responsive styles for mobile view */
+   /* ✅ Responsive styles for mobile view */
     @media (max-width: 768px) {
-      .menu-toggle {
-        display: block; /* show hamburger */
+      nav {
+        diabsolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
       }
 
       nav {
@@ -297,6 +301,14 @@
       </div>
     </div>
   </section>
+  
+<!-- Lightbox Viewer -->
+<div class="lightbox" id="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <span class="prev" onclick="prevImage()">❮</span>
+  <img id="lightbox-img" src="" alt="">
+  <span class="next" onclick="nextImage()">❯</span>
+</div>
 
   <footer>
     <div class="footer-col">
@@ -327,34 +339,47 @@
     © 2025 Kamelilo Day Secondary School. All rights reserved.
   </div>
 
-  <script>
-    function toggleMenu() {
-      const nav = document.querySelector('nav');
-      nav.classList.toggle('active');
-    }
+ 
+<!-- ✅ Script for lightbox and mobile menu -->
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const galleryImages = document.querySelectorAll('.gallery-grid img');
+  let currentIndex = 0;
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const bars = document.querySelectorAll(".bar");
-      bars.forEach(bar => {
-        const target = +bar.getAttribute("data-target");
-        let width = 0;
-        const speed = target > 20 ? 10 : 50;
-
-        const update = () => {
-          if (width < target) {
-            width++;
-            bar.style.width = (width * 2) + "%";
-            bar.innerText = width;
-            setTimeout(update, speed);
-          } else {
-            bar.innerText = target;
-          }
-        };
-
-        update();
-      });
+  galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+      currentIndex = index;
     });
-  </script>
+  });
 
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].src;
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].src;
+  }
+
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+  });
+
+  // ✅ Mobile menu toggle
+  function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
+  }
+</script>
 </body>
 </html>
