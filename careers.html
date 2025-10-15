@@ -134,6 +134,68 @@
       padding: 15px;
       font-size: 14px;
     }
+
+    /* ---------- MOBILE MENU STYLES ---------- */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .burger-menu {
+        display: block;
+        width: 30px;
+        cursor: pointer;
+      }
+
+      .burger-menu span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: #ffffff;
+        margin: 6px 0;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .burger-menu.active .bar-one {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .burger-menu.active .bar-two {
+        opacity: 0;
+      }
+
+      .burger-menu.active .bar-three {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      nav.active {
+        display: block;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #002244;
+        width: 80%;
+        padding: 20px;
+        border-radius: 10px 0 0 10px;
+        animation: slideIn 0.3s ease forwards;
+        text-align: right;
+      }
+
+      @keyframes slideIn {
+        from { opacity: 0; transform: translateX(100%); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+
+      nav a {
+        display: block;
+        margin: 15px 0;
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+        text-decoration: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -142,6 +204,14 @@
   <div>
     <img src="images/logo.png" alt="Kamelilo Logo">
   </div>
+
+  <!-- Burger Menu -->
+  <div class="burger-menu" onclick="toggleMenu()">
+    <span class="bar-one"></span>
+    <span class="bar-two"></span>
+    <span class="bar-three"></span>
+  </div>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -161,7 +231,6 @@
 </header>
 
 <section class="hero">
- 
 </section>
 
 <section class="section">
@@ -186,7 +255,6 @@
     <p><strong>Department:</strong> Student Affairs</p>
     <p><strong>Deadline:</strong> 5th August 2025</p>
     <a class="apply-btn" href="contact.html">Apply Now</a>
-  
   </div>
 </section>
 
@@ -211,7 +279,6 @@
     <div class="social-icons">
       <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
       <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
-     
     </div>
   </div>
 </footer>
@@ -219,6 +286,15 @@
 <div class="copyright">
   © 2025 Kamelilo Day Secondary School. All rights reserved.
 </div>
+
+<script>
+  function toggleMenu() {
+    const burger = document.querySelector('.burger-menu');
+    const nav = document.querySelector('nav');
+    burger.classList.toggle('active');
+    nav.classList.toggle('active');
+  }
+</script>
 
 </body>
 </html>
