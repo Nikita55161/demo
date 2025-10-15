@@ -37,40 +37,11 @@
       font-weight: bold;
     }
 
-    /* --- MOBILE NAVIGATION TOGGLE --- */
     .menu-toggle {
       display: none;
       font-size: 26px;
       cursor: pointer;
       color: white;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background-color: #002244;
-        width: 100%;
-        text-align: center;
-      }
-
-      nav a {
-        display: block;
-        padding: 10px 0;
-        border-top: 1px solid rgba(255,255,255,0.1);
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      header {
-        justify-content: space-between;
-      }
     }
 
     .intro {
@@ -183,6 +154,41 @@
       padding: 15px;
       font-size: 14px;
     }
+
+    /* --- MOBILE STYLES --- */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #002244;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        text-align: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav a {
+        padding: 15px 0;
+        border-top: 1px solid #004080;
+        margin: 0;
+      }
+
+      header {
+        justify-content: space-between;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -295,53 +301,4 @@
         <div class="person">
           <img src="images/logo.png" alt="Paul Oduor">
           <h3></h3>
-          <p>Groundskeeper</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-col">
-      <img src="images/logo.png" alt="Kamelilo Logo" width="100"><br><br>
-      <strong>Kamelilo Day Secondary School</strong><br>
-      P.O Box 1234, Kenya<br>
-      Email: info@kamelilo-school.ac.ke<br>
-      Phone: +254 712 345 678
-    </div>
-
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="downloads.html">Downloads</a>
-      <a href="events.html">Events</a>
-      <a href="careers.html">Careers</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Follow Us</h4>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-        <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      </div>
-    </div>
-  </footer>
-
-  <div class="copyright">
-    © 2025 Kamelilo Day Secondary School. All rights reserved.
-  </div>
-
-  <script>
-    // Toggle Support Staff
-    function toggleSupport() {
-      const support = document.getElementById("supportStaff");
-      support.style.display = support.style.display === "none" || support.style.display === "" ? "block" : "none";
-    }
-
-    // Mobile Menu Toggle
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-      document.getElementById('nav-menu').classList.toggle('active');
-    });
-  </script>
-
-</body>
-</html>
+          <p>
