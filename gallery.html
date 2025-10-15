@@ -29,11 +29,50 @@
       height: 50px;
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
     nav a {
       color: white;
       margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    /* ✅ Hamburger icon (hidden on desktop) */
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* ✅ Responsive styles for mobile view */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #002244;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav a {
+        padding: 15px 0;
+        border-top: 1px solid #004080;
+      }
     }
 
     .hero {
@@ -179,6 +218,10 @@
   <div>
     <img src="images/logo.png" alt="Kamelilo Logo">
   </div>
+
+  <!-- ✅ Hamburger Menu Icon -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -197,9 +240,7 @@
   </nav>
 </header>
 
-<section class="hero">
-  
-</section>
+<section class="hero"></section>
 
 <section class="gallery-section">
   <h2>Captured Memories at Kamelilo</h2>
@@ -212,9 +253,7 @@
     <img src="images/img6.jpg" alt="Event 6">
     <img src="images/img7.jpg" alt="Event 7">
     <img src="images/img8.jpg" alt="Event 8">
-    <img src="images/img7.jpg" alt="Event 7">
-    <img src="images/img8.jpg" alt="Event 8">
-   </div>
+  </div>
 </section>
 
 <!-- Lightbox Viewer -->
@@ -245,8 +284,7 @@
     <h4>Follow Us</h4>
     <div class="social-icons">
       <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
-     
+      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
   </div>
 </footer>
@@ -255,6 +293,7 @@
   © 2025 Kamelilo Day Secondary School. All rights reserved.
 </div>
 
+<!-- ✅ Script for lightbox and mobile menu -->
 <script>
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
@@ -288,6 +327,12 @@
     if (e.key === 'ArrowRight') nextImage();
     if (e.key === 'ArrowLeft') prevImage();
   });
+
+  // ✅ Mobile menu toggle
+  function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
+  }
 </script>
 
 </body>
