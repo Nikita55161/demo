@@ -27,6 +27,7 @@
 
     header img {
       height: 50px;
+      width: auto;
     }
 
     nav a {
@@ -34,6 +35,13 @@
       margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: white;
     }
 
     .hero {
@@ -67,6 +75,7 @@
     .event-img {
       flex: 1;
       min-width: 300px;
+      text-align: center;
     }
 
     .event-img img {
@@ -89,6 +98,7 @@
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
+      justify-content: flex-start;
     }
 
     .timer {
@@ -154,7 +164,7 @@
       font-size: 14px;
     }
 
-    /* ---------- MOBILE MENU STYLES ---------- */
+    /* --- MOBILE STYLES --- */
     @media (max-width: 768px) {
       nav {
         display: none;
@@ -163,9 +173,9 @@
         position: absolute;
         top: 70px;
         right: 0;
-        width: 80%;
-        padding: 20px;
-        border-radius: 10px 0 0 10px;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
       }
 
       nav.active {
@@ -174,36 +184,30 @@
 
       nav a {
         display: block;
-        padding: 10px 0;
-        text-align: right;
-        color: white;
+        padding: 15px 0;
+        border-top: 1px solid #004080;
+        margin: 0;
       }
 
-      .burger-menu {
+      .menu-toggle {
         display: block;
-        cursor: pointer;
       }
 
-      .burger-menu span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: white;
-        margin: 5px 0;
-        border-radius: 2px;
-        transition: all 0.3s ease;
+      header {
+        justify-content: space-between;
       }
 
-      .burger-menu.active .bar1 {
-        transform: rotate(45deg) translate(5px, 5px);
+      .event-section {
+        flex-direction: column;
+        padding: 30px 20px;
       }
 
-      .burger-menu.active .bar2 {
-        opacity: 0;
+      .event-img, .event-details {
+        min-width: 100%;
       }
 
-      .burger-menu.active .bar3 {
-        transform: rotate(-45deg) translate(5px, -5px);
+      .countdown-boxes {
+        justify-content: center;
       }
     }
   </style>
@@ -215,14 +219,12 @@
     <img src="images/logo.jpg" alt="Kamelilo Logo">
   </div>
 
-  <!-- 🔹 BURGER MENU BUTTON -->
-  <div class="burger-menu" id="burger-menu">
-    <span class="bar1"></span>
-    <span class="bar2"></span>
-    <span class="bar3"></span>
+  <!-- ✅ HAMBURGER MENU -->
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fas fa-bars"></i>
   </div>
 
-  <nav>
+  <nav id="nav-menu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="academics.html">Academics</a>
@@ -245,11 +247,11 @@
 <!-- Event 1 -->
 <div class="event-section">
   <div class="event-img">
-    <img src="images/kcse.png" alt="KCSE" width="300" height="450">
+    <img src="images/kcse.png" alt="KCSE">
   </div>
   <div class="event-details">
-    <p class="event-description">KSCE- Upcoming kcse 2025</p>
-    <div class="countdown-boxes" data-date="October 21, 2025 21:08:00:00" id="countdown1">
+    <p class="event-description">KSCE- Upcoming KCSE 2025</p>
+    <div class="countdown-boxes" data-date="October 21, 2025 21:08:00" id="countdown1">
       <div class="timer"><span>7</span>Days</div>
       <div class="timer"><span>168</span>Hours</div>
       <div class="timer"><span>00</span>Minutes</div>
@@ -261,7 +263,7 @@
 <!-- Event 2 -->
 <div class="event-section">
   <div class="event-img">
-    <img src="images/award.jpeg" alt="Awards Day" width="800" height="600">
+    <img src="images/award.jpeg" alt="Awards Day">
   </div>
   <div class="event-details">
     <p class="event-description">Annual Academic Awards - Recognizing Excellence</p>
@@ -303,8 +305,8 @@
   © 2025 Kamelilo Day Secondary School. All rights reserved.
 </div>
 
-<!-- JavaScript -->
 <script>
+  // Countdown timers
   function startCountdowns() {
     document.querySelectorAll('.countdown-boxes').forEach(box => {
       const dateStr = box.dataset.date;
@@ -333,12 +335,11 @@
 
   window.onload = startCountdowns;
 
-  // 🔹 BURGER MENU TOGGLE
-  const burger = document.getElementById('burger-menu');
-  const nav = document.querySelector('nav');
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('active');
-    nav.classList.toggle('active');
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
   });
 </script>
 
