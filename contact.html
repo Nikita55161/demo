@@ -14,7 +14,7 @@
     }
 
     header {
-      background-color:  #002244;
+      background-color: #002244;
       color: white;
       display: flex;
       justify-content: space-between;
@@ -29,6 +29,12 @@
       height: 50px;
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
     nav a {
       color: white;
       margin: 0 10px;
@@ -36,54 +42,37 @@
       font-weight: bold;
     }
 
-    /* ---------- MOBILE MENU STYLES ---------- */
-    .burger-menu {
+    /* Hamburger menu button */
+    .menu-toggle {
       display: none;
-      flex-direction: column;
+      font-size: 24px;
       cursor: pointer;
-    }
-
-    .burger-menu span {
-      height: 3px;
-      width: 25px;
-      background: white;
-      margin: 4px 0;
-      border-radius: 2px;
-      transition: all 0.3s ease;
+      color: white;
     }
 
     @media (max-width: 768px) {
       nav {
         display: none;
         flex-direction: column;
+        width: 100%;
+        background-color: #002244;
         position: absolute;
         top: 70px;
-        right: 0;
-        background: #002244;
-        width: 80%;
-        padding: 20px;
-        border-radius: 10px 0 0 10px;
-        animation: slideIn 0.3s ease forwards;
+        left: 0;
       }
 
-      @keyframes slideIn {
-        from { opacity: 0; transform: translateX(100%); }
-        to { opacity: 1; transform: translateX(0); }
+      nav a {
+        padding: 12px;
+        border-top: 1px solid rgba(255,255,255,0.2);
+        margin: 0;
+      }
+
+      .menu-toggle {
+        display: block;
       }
 
       nav.active {
         display: flex;
-      }
-
-      .burger-menu {
-        display: flex;
-      }
-
-      nav a {
-        display: block;
-        margin: 10px 0;
-        font-size: 18px;
-        text-align: right;
       }
     }
 
@@ -245,14 +234,9 @@
     <img src="images/logo.jpg" alt="Kamelilo Logo">
   </div>
 
-  <!-- Burger menu -->
-  <div class="burger-menu" id="burger-menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+  <i class="fas fa-bars menu-toggle" onclick="toggleMenu()"></i>
 
-  <nav id="nav-links">
+  <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="academics.html">Academics</a>
@@ -270,13 +254,94 @@
   </nav>
 </header>
 
-<!-- Toggle Script -->
 <script>
-  const burger = document.getElementById('burger-menu');
-  const nav = document.getElementById('nav-links');
-
-  burger.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    burger.classList.toggle('active');
-  });
+  function toggleMenu() {
+    document.querySelector('nav').classList.toggle('active');
+  }
 </script>
+
+<section class="hero">
+  <h1 id="typewriter" class="typewriter"></h1>
+  <script>
+    const text = "";
+    let i = 0;
+    function typeEffect() {
+      if (i < text.length) {
+        document.getElementById("typewriter").textContent += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 100);
+      }
+    }
+    window.onload = typeEffect;
+  </script>
+  <style>
+    .typewriter {
+      display: inline-block;
+      border-right: 2px solid #002244;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blinkCursor 0.7s infinite;
+      font-size: 2em;
+      color: #002244;
+      font-family: monospace;
+    }
+    @keyframes blinkCursor {
+      0%, 50% { border-color: #002244;}
+      51%, 100% { border-color: transparent; }
+    }
+  </style>
+</section>
+
+<section class="contact-section">
+  <div class="contact-info">
+    <h2>Contact Information</h2>
+    <p><i class="fas fa-map-marker-alt"></i> P.O Box 1234, Kenya</p>
+    <p><i class="fas fa-phone-alt"></i> +254 712 345 678</p>
+    <p><i class="fas fa-envelope"></i> info@kamelilo-school.ac.ke</p>
+    <p><i class="fas fa-clock"></i> Monday - Friday: 8:00am - 5:00pm</p>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen="" loading="lazy"></iframe>
+  </div>
+
+  <div class="contact-form">
+    <h2>Send Us a Message</h2>
+    <form action="https://formspree.io/f/mvgwvjqy" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-col">
+    <img src="images/logo.png" alt="Kamelilo Logo" width="100"><br><br>
+    <strong>Kamelilo Day Secondary School</strong><br>
+    P.O Box 1234, Kenya<br>
+    Email: info@kamelilo-school.ac.ke<br>
+    Phone: +254 712 345 678
+  </div>
+
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <a href="downloads.html">Downloads</a>
+    <a href="events.html">Events</a>
+    <a href="careers.html">Careers</a>
+  </div>
+
+  <div class="footer-col">
+    <h4>Follow Us</h4>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<div class="copyright">
+  © 2025 Kamelilo Day Secondary School. All rights reserved.
+</div>
+
+</body>
+</html>
