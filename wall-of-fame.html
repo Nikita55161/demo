@@ -154,15 +154,41 @@
       font-size: 14px;
     }
 
-    /* Hide nav links on mobile */
+    /* Mobile styles matching About Us page */
     @media (max-width: 768px) {
       nav {
         display: none;
+        flex-direction: column;
+        background-color: #002244;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        text-align: center;
       }
 
-      #menu-btn {
-        display: block;
+      nav.active {
+        display: flex;
       }
+
+      .menu-toggle {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      nav a {
+        padding: 15px 0;
+        border-top: 1px solid #004080;
+        margin: 0;
+      }
+    }
+
+    /* Hide menu toggle on desktop */
+    .menu-toggle {
+      display: none;
     }
   </style>
 </head>
@@ -173,10 +199,8 @@
     <img src="images/logo.png" alt="Kamelilo Logo" />
   </div>
 
-  <!-- Hamburger button (visible on mobile) -->
-  <button id="menu-btn" class="text-white text-2xl md:hidden">
-    <i class="fa fa-bars"></i>
-  </button>
+  <!-- Hamburger menu icon -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
   <nav>
     <a href="index.html">Home</a>
@@ -195,24 +219,6 @@
     <a href="student-life.html">Student Life</a>
   </nav>
 </header>
-
-<!-- Mobile Dropdown -->
-<div id="mobile-menu" class="hidden bg-blue-800 text-white text-center p-4 md:hidden">
-  <a href="index.html" class="block py-2">Home</a>
-  <a href="about.html" class="block py-2">About</a>
-  <a href="academics.html" class="block py-2">Academics</a>
-  <a href="admissions.html" class="block py-2">Admissions</a>
-  <a href="alumni.html" class="block py-2">Alumni</a>
-  <a href="committee.html" class="block py-2">Committee</a>
-  <a href="gallery.html" class="block py-2">Gallery</a>
-  <a href="wall-of-fame.html" class="block py-2">Wall of Fame</a>
-  <a href="events.html" class="block py-2">Events</a>
-  <a href="blog.html" class="block py-2">Blog</a>
-  <a href="downloads.html" class="block py-2">Downloads</a>
-  <a href="contact.html" class="block py-2">Contact</a>
-  <a href="careers.html" class="block py-2">Careers</a>
-  <a href="student-life.html" class="block py-2">Student Life</a>
-</div>
 
 <section class="hero"></section>
 
@@ -239,15 +245,15 @@
       </div>
     </div>
     <div class="person">
-        <img src="images/logo.jpg" alt="Principal ">
-        <h4>Mr. Daniel Rotich</h4>
-        <span>2009-2019</span>
-      </div>
-      <div class="person">
-        <img src="images/logo.jpg" alt="Principal ">
-        <h4>M/s Catherine Nyambura</h4>
-        <span>2020-2023</span>
-      </div>
+      <img src="images/logo.jpg" alt="Principal ">
+      <h4>Mr. Daniel Rotich</h4>
+      <span>2009-2019</span>
+    </div>
+    <div class="person">
+      <img src="images/logo.jpg" alt="Principal ">
+      <h4>M/s Catherine Nyambura</h4>
+      <span>2020-2023</span>
+    </div>
   </details>
 
   <!-- Deputy Principals -->
@@ -314,7 +320,7 @@
     <h4>Follow Us</h4>
     <div class="social-icons">
       <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
+      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
   </div>
 </footer>
@@ -324,11 +330,10 @@
 </div>
 
 <script>
-  // Mobile menu toggle
-  document.getElementById('menu-btn').addEventListener('click', () => {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
-  });
+  function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
+  }
 </script>
 
 </body>
