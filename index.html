@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kamelilo Day Secondary School</title>
   <link rel="icon" type="logo" href="images/logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <style>
     body {
       margin: 0;
@@ -14,27 +14,23 @@
       background-color: #e6f0ff;
     }
 
-    header {
-      background-color: #002244;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 30px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      flex-wrap: wrap;
-    }
+    
+     header {
+  background-color:  #002244;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+    
 
     header img {
       height: 50px;
-    }
-
-    /* ✅ Nav styling */
-    nav {
-      display: flex;
-      align-items: center;
     }
 
     nav a {
@@ -44,54 +40,6 @@
       font-weight: bold;
     }
 
-    /* ✅ Hamburger Menu */
-    .menu-toggle {
-      display: none;
-      font-size: 22px;
-      background: transparent;
-      border: none;
-      color: white;
-      cursor: pointer;
-      padding: 6px;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background-color: #002244;
-        position: absolute;
-        top: 64px;
-        right: 0;
-        width: 80%;
-        padding: 12px 18px;
-        border-radius: 10px 0 0 10px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      nav a {
-        display: block;
-        margin: 8px 0;
-        padding: 8px 0;
-        text-align: right;
-        border-top: 1px solid rgba(255,255,255,0.06);
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header { padding: 10px 16px; }
-      nav { width: 90%; top: 60px; }
-    }
-
-    /* ✅ Hero section */
     .hero {
       background: url('images/home banner.jpeg') no-repeat center center/cover;
       height: 400px;
@@ -109,7 +57,6 @@
       border-radius: 10px;
     }
 
-    /* ✅ History section */
     .history-section {
       background-color: #f5f5f5;
       padding: 60px 40px;
@@ -130,7 +77,7 @@
 
     .history-text h2 {
       font-size: 28px;
-      color: #002244;
+      color:#002244;
     }
 
     .history-text p {
@@ -141,7 +88,7 @@
     .history-text button {
       margin-top: 15px;
       padding: 10px 20px;
-      background-color: #002244;
+      background-color:#002244;
       color: white;
       border: none;
       border-radius: 5px;
@@ -198,146 +145,127 @@
       padding: 15px;
       font-size: 14px;
     }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <div>
-    <img src="images/logo.png" alt="Kamelilo Logo">
-  </div>
-
-  <!-- ✅ Mobile Toggle -->
-  <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="fas fa-bars" aria-hidden="true"></i>
-  </button>
-
-  <nav id="main-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="academics.html">Academics</a>
-    <a href="admissions.html">Admissions</a>
-    <a href="alumni.html">Alumni</a>
-    <a href="committee.html">Committee</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="wall-of-fame.html">Wall of Fame</a>
-    <a href="events.html">Events</a>
-    <a href="blog.html">Blog</a>
-    <a href="downloads.html">Downloads</a>
-    <a href="contact.html">Contact</a>
-    <a href="careers.html">Careers</a>
-    <a href="student-life.html">Student Life</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>Welcome to Kamelilo Day Secondary School</h1>
-</section>
-
-<section class="history-section">
-  <div class="history-container">
-    <div class="history-text">
-      <h2>Our History</h2>
-      <p>
-        Established in 2002, our school has grown from a humble beginning of 30 students and 2 teachers to a fully registered institution with modern facilities, dedicated staff, and a steadily growing student body. We are committed to academic excellence, character development, and community service.
-      </p>
-      <button onclick="location.href='about.html'">Learn More</button>
-    </div>
-    <div class="history-image">
-      <img src="images/history.jpeg" alt="School Image">
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-col">
-    <img src="images/logo.png" alt="Kamelilo Logo" width="100"><br><br>
-    <strong>Kamelilo Day Secondary School</strong><br>
-    P.O Box 1234, Kenya<br>
-    Email: info@kamelilo-school.ac.ke<br>
-    Phone: +254 712 345 678
-  </div>
-
-  <div class="footer-col">
-    <h4>Quick Links</h4>
-    <a href="downloads.html">Downloads</a>
-    <a href="events.html">Events</a>
-    <a href="careers.html">Careers</a>
-  </div>
-
-  <div class="footer-col">
-    <h4>Follow Us</h4>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    </div>
-  </div>
-</footer>
-
-<div class="copyright">
-  © 2025 Kamelilo Day Secondary School. All rights reserved.
-</div>
-
-<!-- ✅ Mobile Menu Script -->
-<script>
-  const toggleBtn = document.getElementById('menu-toggle');
-  const mainNav = document.getElementById('main-nav');
-
-  function initNavState() {
-    if (window.innerWidth <= 768) {
-      mainNav.style.display = 'none';
-      toggleBtn.setAttribute('aria-expanded', 'false');
-      toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
-    } else {
-      mainNav.style.display = '';
-      toggleBtn.setAttribute('aria-expanded', 'false');
-      toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
-    }
+    /* Responsive styles for mobile view */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: #002244;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    text-align: center;
   }
 
-  initNavState();
+  nav.active {
+    display: flex;
+  }
 
-  toggleBtn.addEventListener('click', () => {
-    const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
-    if (isOpen) {
-      mainNav.style.display = 'none';
-      toggleBtn.setAttribute('aria-expanded', 'false');
-      toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
-    } else {
-      mainNav.style.display = 'flex';
-      mainNav.style.flexDirection = 'column';
-      toggleBtn.setAttribute('aria-expanded', 'true');
-      toggleBtn.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i>';
-    }
-  });
+  .menu-toggle {
+    display: block;
+  }
 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      mainNav.style.display = '';
-      toggleBtn.setAttribute('aria-expanded', 'false');
-      toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
-    } else if (toggleBtn.getAttribute('aria-expanded') !== 'true') {
-      mainNav.style.display = 'none';
-    }
-  });
+  nav a {
+    padding: 15px 0;
+    border-top: 1px solid #004080;
+    margin: 0;
+  }
+}
 
-  mainNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 768) {
-        mainNav.style.display = 'none';
-        toggleBtn.setAttribute('aria-expanded', 'false');
-        toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
-      }
-    });
-  });
+  </style>
+</head>
+<body>
 
-  // Secret admin shortcut
+  <header>
+    <div>
+      <img src="images/logo.png" alt="Kamelilo Logo">
+    </div>
+    <!-- Hamburger menu icon -->
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="alumni.html">Alumni</a>
+      <a href="committee.html">Committee</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="wall-of-fame.html">Wall of Fame</a>
+      <a href="events.html">Events</a>
+      <a href="blog.html">Blog</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="contact.html">Contact</a>
+      <a href="careers.html">Careers</a>
+      <a href="student-life.html">Student Life</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+  
+  </section>
+
+  <section class="history-section">
+    <div class="history-container">
+      <div class="history-text">
+        <h2>Our History</h2>
+        <p>
+          Established in 2002, our school has grown from a humble beginning of 30 students and 2 teachers to a fully registered institution with modern facilities, dedicated staff, and a steadily growing student body. We are committed to academic excellence, character development, and community service
+        </p>
+        <button onclick="location.href='about.html'">Learn More</button>
+      </div>
+      <div class="history-image">
+
+        <img src="images/history.jpeg" alt="School Image">
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-col">
+      <img src="images/logo.png" alt="Kamelilo Logo" width="100"><br><br>
+      <strong>Kamelilo Day Secondary School</strong><br>
+      P.O Box 1234, Kenya<br>
+      Email: info@kamelilo-school.ac.ke<br>
+      Phone: +254 712 345 678
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="downloads.html">Downloads</a>
+      <a href="events.html">Events</a>
+      <a href="careers.html">Careers</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
+     
+      </div>
+    </div>
+  </footer>
+
+  <div class="copyright">
+    © 2025 Kamelilo Day Secondary School. All rights reserved.
+  </div>
+  <script>
   document.addEventListener('keydown', function(e) {
+    // If the 'k' or 'K' key is pressed
     if (e.key.toLowerCase() === 'k') {
       window.location.href = 'admin/index.php';
     }
   });
+</script>
+
+<script>
+  function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
+  }
 </script>
 
 </body>
