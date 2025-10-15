@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kamelilo Day Secondary School</title>
   <link rel="icon" type="logo" href="images/logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     body {
       margin: 0;
@@ -14,20 +14,17 @@
       background-color: #e6f0ff;
     }
 
-    
-     header {
-  background-color:  #002244;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-    
+    header {
+      background-color: #002244;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
     header img {
       height: 50px;
@@ -38,6 +35,44 @@
       margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    /* HAMBURGER MENU STYLES */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #002244;
+      }
+
+      nav a {
+        padding: 10px;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav.active {
+        display: flex;
+      }
     }
 
     .hero {
@@ -77,7 +112,7 @@
 
     .history-text h2 {
       font-size: 28px;
-      color:#002244;
+      color: #002244;
     }
 
     .history-text p {
@@ -88,7 +123,7 @@
     .history-text button {
       margin-top: 15px;
       padding: 10px 20px;
-      background-color:#002244;
+      background-color: #002244;
       color: white;
       border: none;
       border-radius: 5px;
@@ -146,71 +181,27 @@
       font-size: 14px;
     }
   </style>
-  <!-- Responsive design and Tailwind setup -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Tailwind CSS -->
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-<!-- Font Awesome for the hamburger icon -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-  
+
 <body>
-  <!-- ✅ START OF NAVIGATION BAR -->
-<nav class="bg-blue-700 text-white fixed top-0 left-0 w-full shadow-lg z-50">
-  <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-    <!-- Logo or Name -->
-    <div class="text-2xl font-bold">Kamelilo Day</div>
-
-    <!-- Toggle button (hamburger) -->
-    <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
-      <i class="fas fa-bars text-2xl"></i>
-    </button>
-
-  
-  <!-- Mobile dropdown -->
-  <div id="mobile-menu" class="hidden md:hidden bg-blue-800 px-4 py-4 space-y-3">
-    <a href="index.html" class="block hover:text-yellow-300">Home</a>
-    <a href="about.html" class="block hover:text-yellow-300">About</a>
-    <a href="academics.html" class="block hover:text-yellow-300">Academics</a>
-    <a href="admissions.html" class="block hover:text-yellow-300">Admissions</a>
-    <a href="alumni.html" class="block hover:text-yellow-300">Alumni</a>
-    <a href="committee.html" class="block hover:text-yellow-300">Committee</a>
-    <a href="gallery.html" class="block hover:text-yellow-300">Gallery</a>
-    <a href="events.html" class="block hover:text-yellow-300">Events</a>
-    <a href="walloffame.html" class="block hover:text-yellow-300">Wall of Fame</a>
-    <a href="downloads.html" class="block hover:text-yellow-300">Downloads</a>
-    <a href="blog.html" class="block hover:text-yellow-300">Blog</a>
-    <a href="studentlife.html" class="block hover:text-yellow-300">Student Life</a>
-    <a href="careers.html" class="block hover:text-yellow-300">Careers</a>
-    <a href="contact.html" class="block hover:text-yellow-300">Contact</a>
-  </div>
-</nav>
-  <section class="mt-20">
-  <!-- your page content -->
-</section>
-<!-- ✅ END OF NAVIGATION BAR -->
-
-<!-- JS to toggle the mobile menu -->
-<script>
-  const toggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  toggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-</script>
-
   <header>
     <div>
       <img src="images/logo.png" alt="Kamelilo Logo">
     </div>
+
+    <!-- ✅ HAMBURGER ICON ADDED HERE -->
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="academics.html">Academics</a>
       <a href="admissions.html">Admissions</a>
-      <a href="Alumni.html">Alumni</a>
+      <a href="alumni.html">Alumni</a>
       <a href="committee.html">Committee</a>
       <a href="gallery.html">Gallery</a>
       <a href="wall-of-fame.html">Wall of Fame</a>
@@ -223,9 +214,7 @@
     </nav>
   </header>
 
-  <section class="hero">
-  
-  </section>
+  <section class="hero"></section>
 
   <section class="history-section">
     <div class="history-container">
@@ -237,9 +226,7 @@
         <button onclick="location.href='about.html'">Learn More</button>
       </div>
       <div class="history-image">
-
         <img src="images/history.jpeg" alt="School Image">
-
       </div>
     </div>
   </section>
@@ -264,8 +251,7 @@
       <h4>Follow Us</h4>
       <div class="social-icons">
         <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
-     
+        <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       </div>
     </div>
   </footer>
@@ -273,15 +259,21 @@
   <div class="copyright">
     © 2025 Kamelilo Day Secondary School. All rights reserved.
   </div>
+
+  <!-- ✅ MOBILE MENU SCRIPT -->
   <script>
-  document.addEventListener('keydown', function(e) {
-    // If the 'k' or 'K' key is pressed
-    if (e.key.toLowerCase() === 'k') {
-      window.location.href = 'admin/index.php';
-    }
-  });
-</script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const nav = document.querySelector('nav');
+    mobileMenu.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
 
-
+    // Secret admin shortcut
+    document.addEventListener('keydown', function(e) {
+      if (e.key.toLowerCase() === 'k') {
+        window.location.href = 'admin/index.php';
+      }
+    });
+  </script>
 </body>
 </html>
