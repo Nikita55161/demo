@@ -14,7 +14,7 @@
     }
 
     header {
-      background-color:#002244;
+      background-color: #002244;
       color: white;
       display: flex;
       justify-content: space-between;
@@ -29,6 +29,11 @@
       height: 50px;
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
     nav a {
       color: white;
       margin: 0 10px;
@@ -36,30 +41,38 @@
       font-weight: bold;
     }
 
-    /* MOBILE MENU */
+    /* Hamburger Icon (hidden on desktop) */
     .menu-toggle {
       display: none;
-      flex-direction: column;
+      font-size: 24px;
       cursor: pointer;
     }
 
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: white;
-      margin: 4px 0;
-      border-radius: 2px;
-      transition: 0.3s;
-    }
+    /* Responsive styles like About/Blog page */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #002244;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+      }
 
-    .menu-toggle.active .bar1 {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .menu-toggle.active .bar2 {
-      opacity: 0;
-    }
-    .menu-toggle.active .bar3 {
-      transform: rotate(-45deg) translate(6px, -6px);
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav a {
+        padding: 15px 0;
+        border-top: 1px solid #004080;
+      }
     }
 
     .hero {
@@ -173,15 +186,8 @@
     }
 
     .social-icons a {
-      display: inline-block;
       margin-right: 10px;
-      color: white;
-      font-size: 18px;
-      text-decoration: none;
-    }
-
-    .social-icons a i {
-      margin-right: 6px;
+      font-size: 20px;
     }
 
     .copyright {
@@ -191,192 +197,158 @@
       padding: 15px;
       font-size: 14px;
     }
-
-    /* MOBILE RESPONSIVE - BLOG STYLE */
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background-color: #002244;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 70%;
-        padding: 20px;
-        border-radius: 10px 0 0 10px;
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      nav a {
-        padding: 10px 0;
-        text-align: right;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <header>
-    <div>
-      <img src="images/logo.png" alt="Kamelilo Logo">
-    </div>
-
-    <!-- MOBILE MENU ICON -->
-    <div class="menu-toggle" id="mobile-menu">
-      <span class="bar1"></span>
-      <span class="bar2"></span>
-      <span class="bar3"></span>
-    </div>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="academics.html">Academics</a>
-      <a href="admissions.html">Admissions</a>
-      <a href="alumni.html">Alumni</a>
-      <a href="committee.html">Committee</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="wall-of-fame.html">Wall of Fame</a>
-      <a href="events.html">Events</a>
-      <a href="blog.html">Blog</a>
-      <a href="downloads.html">Downloads</a>
-      <a href="contact.html">Contact</a>
-      <a href="careers.html">Careers</a>
-      <a href="student-life.html">Student Life</a>
-    </nav>
-  </header>
-
-  <section class="hero"></section>
-
-  <section class="section">
-    <h2>Curriculum Overview</h2>
-    <p>
-      Kamelilo Day Secondary School follows the national curriculum approved by the Ministry of Education in Kenya.
-      We aim to equip students with a strong academic foundation, critical thinking skills, and a lifelong passion for learning.
-    </p>
-  </section>
-
-  <section class="section">
-    <h2>Subjects Offered</h2>
-    <div class="subjects">
-      <div>Mathematics</div>
-      <div>English</div>
-      <div>Kiswahili</div>
-      <div>Biology</div>
-      <div>Chemistry</div>
-      <div>Physics</div>
-      <div>Geography</div>
-      <div>History</div>
-      <div>CRE</div>
-      <div>Business Studies</div>
-      <div>Agriculture</div>
-      <div>Computer Studies</div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>KCSE 2024 Performance Summary</h2>
-    <p>Below is the grade distribution of our candidates in the 2024 KCSE exams. Our school continues to excel academically.</p>
-
-    <div class="kcse-summary">
-      <div class="grade">
-        <div class="grade-label">A</div>
-        <div class="bar-container">
-          <div class="bar" style="background:#2ecc71" data-target="1">0</div>
-        </div>
-      </div>
-      <div class="grade">
-        <div class="grade-label">B</div>
-        <div class="bar-container">
-          <div class="bar" style="background:#3498db" data-target="12">0</div>
-        </div>
-      </div>
-      <div class="grade">
-        <div class="grade-label">C</div>
-        <div class="bar-container">
-          <div class="bar" style="background:#f1c40f" data-target="40">0</div>
-        </div>
-      </div>
-      <div class="grade">
-        <div class="grade-label">D</div>
-        <div class="bar-container">
-          <div class="bar" style="background:#e67e22" data-target="18">0</div>
-        </div>
-      </div>
-      <div class="grade">
-        <div class="grade-label">E</div>
-        <div class="bar-container">
-          <div class="bar" style="background:#e74c3c" data-target="4">0</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-col">
-      <img src="images/logo.png" alt="Kamelilo Logo" width="100"><br><br>
-      <strong>Kamelilo Day Secondary School</strong><br>
-      P.O Box 1234, Kenya<br>
-      Email: info@kamelilo-school.ac.ke<br>
-      Phone: +254 712 345 678
-    </div>
-
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="downloads.html">Downloads</a>
-      <a href="events.html">Events</a>
-      <a href="careers.html">Careers</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Follow Us</h4>
-      <div class="social-icons">
-         <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      </div>
-    </div>
-  </footer>
-
-  <div class="copyright">
-    © 2025 Kamelilo Day Secondary School. All rights reserved.
+<header>
+  <div>
+    <img src="images/logo.png" alt="Kamelilo Logo">
   </div>
 
-  <script>
-    // KCSE bars animation
-    document.addEventListener("DOMContentLoaded", () => {
-      const bars = document.querySelectorAll(".bar");
-      bars.forEach(bar => {
-        const target = +bar.getAttribute("data-target");
-        let width = 0;
-        const speed = target > 20 ? 10 : 50;
-        const update = () => {
-          if(width < target){
-            width++;
-            bar.style.width = (width * 2) + "%";
-            bar.innerText = width;
-            setTimeout(update, speed);
-          } else {
-            bar.innerText = target;
-          }
-        };
-        update();
-      });
-    });
+  <!-- Hamburger menu icon -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-    // MOBILE MENU SCRIPT
-    const mobileMenu = document.getElementById('mobile-menu');
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="academics.html">Academics</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="alumni.html">Alumni</a>
+    <a href="committee.html">Committee</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="wall-of-fame.html">Wall of Fame</a>
+    <a href="events.html">Events</a>
+    <a href="blog.html">Blog</a>
+    <a href="downloads.html">Downloads</a>
+    <a href="contact.html">Contact</a>
+    <a href="careers.html">Careers</a>
+    <a href="student-life.html">Student Life</a>
+  </nav>
+</header>
+
+<section class="hero"></section>
+
+<section class="section">
+  <h2>Curriculum Overview</h2>
+  <p>
+    Kamelilo Day Secondary School follows the national curriculum approved by the Ministry of Education in Kenya.
+    We aim to equip students with a strong academic foundation, critical thinking skills, and a lifelong passion for learning.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Subjects Offered</h2>
+  <div class="subjects">
+    <div>Mathematics</div>
+    <div>English</div>
+    <div>Kiswahili</div>
+    <div>Biology</div>
+    <div>Chemistry</div>
+    <div>Physics</div>
+    <div>Geography</div>
+    <div>History</div>
+    <div>CRE</div>
+    <div>Business Studies</div>
+    <div>Agriculture</div>
+    <div>Computer Studies</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>KCSE 2024 Performance Summary</h2>
+  <p>Below is the grade distribution of our candidates in the 2024 KCSE exams. Our school continues to excel academically.</p>
+
+  <div class="kcse-summary">
+    <div class="grade">
+      <div class="grade-label">A</div>
+      <div class="bar-container">
+        <div class="bar" style="background:#2ecc71" data-target="1">0</div>
+      </div>
+    </div>
+    <div class="grade">
+      <div class="grade-label">B</div>
+      <div class="bar-container">
+        <div class="bar" style="background:#3498db" data-target="12">0</div>
+      </div>
+    </div>
+    <div class="grade">
+      <div class="grade-label">C</div>
+      <div class="bar-container">
+        <div class="bar" style="background:#f1c40f" data-target="40">0</div>
+      </div>
+    </div>
+    <div class="grade">
+      <div class="grade-label">D</div>
+      <div class="bar-container">
+        <div class="bar" style="background:#e67e22" data-target="18">0</div>
+      </div>
+    </div>
+    <div class="grade">
+      <div class="grade-label">E</div>
+      <div class="bar-container">
+        <div class="bar" style="background:#e74c3c" data-target="4">0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-col">
+    <img src="images/logo.png" alt="Kamelilo Logo" width="100"><br><br>
+    <strong>Kamelilo Day Secondary School</strong><br>
+    P.O Box 1234, Kenya<br>
+    Email: info@kamelilo-school.ac.ke<br>
+    Phone: +254 712 345 678
+  </div>
+
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <a href="downloads.html">Downloads</a>
+    <a href="events.html">Events</a>
+    <a href="careers.html">Careers</a>
+  </div>
+
+  <div class="footer-col">
+    <h4>Follow Us</h4>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<div class="copyright">
+  © 2025 Kamelilo Day Secondary School. All rights reserved.
+</div>
+
+<script>
+  function toggleMenu() {
     const nav = document.querySelector('nav');
-    mobileMenu.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-      nav.classList.toggle('active');
+    nav.classList.toggle('active');
+  }
+
+  // KCSE bars animation
+  document.addEventListener("DOMContentLoaded", () => {
+    const bars = document.querySelectorAll(".bar");
+    bars.forEach(bar => {
+      const target = +bar.getAttribute("data-target");
+      let width = 0;
+      const speed = target > 20 ? 10 : 50;
+      const update = () => {
+        if(width < target){
+          width++;
+          bar.style.width = (width * 2) + "%";
+          bar.innerText = width;
+          setTimeout(update, speed);
+        } else {
+          bar.innerText = target;
+        }
+      };
+      update();
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
