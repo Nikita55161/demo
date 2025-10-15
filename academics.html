@@ -37,13 +37,27 @@
       font-weight: bold;
     }
 
+    /* ✅ HAMBURGER MENU STYLES */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
     /* --- HERO / BANNER SECTION --- */
     .hero {
       position: relative;
       width: 100%;
       height: 60vh;
-      background: url('images/admission.png') no-repeat center center;
-      background-size: cover;
+      background: url('images/admission.png') no-repeat center center/cover;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -156,7 +170,7 @@
       font-size: 14px;
     }
 
-    /* ---------- MOBILE MENU STYLES ---------- */
+    /* ✅ MOBILE VIEW STYLES */
     @media (max-width: 768px) {
       nav {
         display: none;
@@ -180,31 +194,8 @@
         text-align: right;
       }
 
-      .burger-menu {
-        display: block;
-        cursor: pointer;
-      }
-
-      .burger-menu span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: white;
-        margin: 5px 0;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-      }
-
-      .burger-menu.active .bar1 {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-
-      .burger-menu.active .bar2 {
-        opacity: 0;
-      }
-
-      .burger-menu.active .bar3 {
-        transform: rotate(-45deg) translate(6px, -6px);
+      .menu-toggle {
+        display: flex;
       }
     }
   </style>
@@ -217,11 +208,11 @@
       <img src="images/logo.jpg" alt="Kamelilo Logo">
     </div>
 
-    <!-- ✅ BURGER MENU ICON -->
-    <div class="burger-menu">
-      <span class="bar1"></span>
-      <span class="bar2"></span>
-      <span class="bar3"></span>
+    <!-- ✅ HAMBURGER ICON -->
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
 
     <nav>
@@ -327,16 +318,13 @@
     © 2025 Kamelilo Day Secondary School. All rights reserved.
   </div>
 
-  <!-- ✅ MOBILE MENU TOGGLE SCRIPT -->
+  <!-- ✅ MOBILE MENU SCRIPT -->
   <script>
-    const burger = document.querySelector('.burger-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
     const nav = document.querySelector('nav');
-
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('active');
+    mobileMenu.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
   </script>
-
 </body>
 </html>
