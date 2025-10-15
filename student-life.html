@@ -29,6 +29,12 @@
       height: 50px;
     }
 
+    /* ensure nav is selectable by JS and flex layout on desktop */
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
     nav a {
       color: white;
       margin: 0 10px;
@@ -142,6 +148,60 @@
       padding: 15px;
       font-size: 14px;
     }
+
+    /* ---------- MOBILE MENU STYLES ---------- */
+    .menu-toggle {
+      display: none; /* shown in media query */
+      font-size: 22px;
+      background: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    @media (max-width: 768px) {
+      /* Hide desktop nav and show mobile nav when toggled */
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #002244;
+        position: absolute;
+        top: 64px; /* just below header */
+        right: 0;
+        width: 80%;
+        padding: 12px 18px;
+        border-radius: 10px 0 0 10px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        display: block;
+        margin: 8px 0;
+        padding: 8px 0;
+        text-align: right;
+        border-top: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      /* make header wrap so menu doesn't overlap */
+      header {
+        flex-wrap: wrap;
+      }
+    }
+
+    /* small-screen tweaks */
+    @media (max-width: 480px) {
+      header { padding: 10px 16px; }
+      nav { width: 90%; top: 60px; }
+    }
   </style>
 </head>
 <body>
@@ -150,7 +210,13 @@
   <div>
     <img src="images/logo.png" alt="Kamelilo Logo">
   </div>
-  <nav>
+
+  <!-- mobile menu toggle button (accessible) -->
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars" aria-hidden="true"></i>
+  </button>
+
+  <nav id="main-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="academics.html">Academics</a>
@@ -236,7 +302,6 @@
     <div class="social-icons">
       <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
       <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
-     
     </div>
   </div>
 </footer>
@@ -244,6 +309,65 @@
 <div class="copyright">
   © 2025 Kamelilo Day Secondary School. All rights reserved.
 </div>
+
+<script>
+  // Mobile Menu - robust toggle using inline styles + aria-expanded
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+
+  // Ensure initial state for small screens
+  function initNavState() {
+    if (window.innerWidth <= 768) {
+      mainNav.style.display = 'none';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+    } else {
+      mainNav.style.display = ''; // let CSS handle desktop
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+    }
+  }
+
+  initNavState();
+
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      mainNav.style.display = 'none';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+    } else {
+      mainNav.style.display = 'flex';
+      mainNav.style.flexDirection = 'column';
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      toggleBtn.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i>';
+    }
+  });
+
+  // If viewport changes, restore appropriate state
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      mainNav.style.display = '';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+    } else {
+      if (toggleBtn.getAttribute('aria-expanded') !== 'true') {
+        mainNav.style.display = 'none';
+      }
+    }
+  });
+
+  // Close mobile menu when a link is clicked (nice UX)
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        mainNav.style.display = 'none';
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
