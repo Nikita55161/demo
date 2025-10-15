@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us | Kamelilo Day Secondary School</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>  
+  <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -29,12 +29,6 @@
       height: 50px;
     }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
     nav a {
       color: white;
       margin: 0 10px;
@@ -42,43 +36,15 @@
       font-weight: bold;
     }
 
-    /* Hamburger menu button */
     .menu-toggle {
       display: none;
       font-size: 24px;
       cursor: pointer;
-      color: white;
     }
 
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #002244;
-        position: absolute;
-        top: 70px;
-        left: 0;
-      }
-
-      nav a {
-        padding: 12px;
-        border-top: 1px solid rgba(255,255,255,0.2);
-        margin: 0;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      nav.active {
-        display: flex;
-      }
-    }
-
-    .hero {
+    .contact-hero {
       background: url('images/contact.jpeg') no-repeat center center/cover;
-      height: 250px;
+      height: 300px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -86,42 +52,89 @@
       text-align: center;
     }
 
-    .hero h1 {
+    .contact-hero h1 {
       font-size: 36px;
       background-color: rgba(0, 0, 0, 0.5);
       padding: 20px;
       border-radius: 10px;
     }
 
-    .contact-section {
-      padding: 40px 60px;
+    .section {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      align-items: flex-start;
+      padding: 60px 40px;
       background-color: #fff;
     }
 
-    .contact-info, .contact-form {
+    .section:nth-child(even) {
+      background-color: #f5f5f5;
+    }
+
+    .text, .image {
       flex: 1;
-      min-width: 300px;
-      margin: 10px;
+      min-width: 280px;
+      padding: 20px;
     }
 
-    .contact-info h2, .contact-form h2 {
+    .text h2 {
       color: #002244;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
-    .contact-info p {
-      margin: 8px 0;
+    .text p {
+      font-size: 16px;
+      line-height: 1.6;
     }
 
     iframe {
       width: 100%;
-      height: 250px;
+      height: 300px;
       border: none;
-      margin-top: 30px;
       border-radius: 10px;
+    }
+
+    .contact-form {
+      background-color: #f8faff;
+      padding: 30px 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      font-size: 15px;
+      border: 1px solid #ccd4e0;
+      border-radius: 6px;
+      background-color: #fff;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form button {
+      background-color: #002244;
+      color: #fff;
+      font-size: 16px;
+      padding: 12px 0;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #004080;
     }
 
     footer {
@@ -164,65 +177,51 @@
       font-size: 14px;
     }
 
-    .contact-form {
-      background-color: #f8faff;
-      padding: 30px 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .contact-form form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 14px;
-      font-size: 15px;
-      border: 1px solid #ccd4e0;
-      border-radius: 6px;
-      background-color: #fff;
-      transition: border-color 0.3s ease;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: #002244;
-      outline: none;
-      box-shadow: 0 0 4px rgba(0, 34, 68, 0.2);
-    }
-
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .contact-form button {
-      background-color: #002244;
-      color: #fff;
-      font-size: 16px;
-      padding: 12px 0;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .contact-form button:hover {
-      background-color: #004080;
-    }
-
+    /* Responsive styles for mobile view */
     @media (max-width: 768px) {
-      .contact-section {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #002244;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        text-align: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav a {
+        padding: 15px 0;
+        border-top: 1px solid #004080;
+        margin: 0;
+      }
+
+      .section {
         flex-direction: column;
         padding: 30px 20px;
       }
 
-      .contact-info iframe {
+      iframe {
         height: 200px;
+      }
+
+      .contact-hero {
+        height: 180px;
+      }
+
+      .contact-hero h1 {
+        font-size: 24px;
+        padding: 15px;
       }
     }
   </style>
@@ -231,10 +230,10 @@
 
 <header>
   <div>
-    <img src="images/logo.jpg" alt="Kamelilo Logo">
+    <img src="images/logo.png" alt="Kamelilo Logo">
   </div>
 
-  <i class="fas fa-bars menu-toggle" onclick="toggleMenu()"></i>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
   <nav>
     <a href="index.html">Home</a>
@@ -254,56 +253,21 @@
   </nav>
 </header>
 
-<script>
-  function toggleMenu() {
-    document.querySelector('nav').classList.toggle('active');
-  }
-</script>
-
-<section class="hero">
-  <h1 id="typewriter" class="typewriter"></h1>
-  <script>
-    const text = "";
-    let i = 0;
-    function typeEffect() {
-      if (i < text.length) {
-        document.getElementById("typewriter").textContent += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, 100);
-      }
-    }
-    window.onload = typeEffect;
-  </script>
-  <style>
-    .typewriter {
-      display: inline-block;
-      border-right: 2px solid #002244;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: blinkCursor 0.7s infinite;
-      font-size: 2em;
-      color: #002244;
-      font-family: monospace;
-    }
-    @keyframes blinkCursor {
-      0%, 50% { border-color: #002244;}
-      51%, 100% { border-color: transparent; }
-    }
-  </style>
+<section class="contact-hero">
+  <h1>Contact Us</h1>
 </section>
 
-<section class="contact-section">
-  <div class="contact-info">
+<section class="section">
+  <div class="text">
     <h2>Contact Information</h2>
     <p><i class="fas fa-map-marker-alt"></i> P.O Box 1234, Kenya</p>
     <p><i class="fas fa-phone-alt"></i> +254 712 345 678</p>
     <p><i class="fas fa-envelope"></i> info@kamelilo-school.ac.ke</p>
     <p><i class="fas fa-clock"></i> Monday - Friday: 8:00am - 5:00pm</p>
-
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!..."></iframe>
   </div>
 
-  <div class="contact-form">
+  <div class="image contact-form">
     <h2>Send Us a Message</h2>
     <form action="https://formspree.io/f/mvgwvjqy" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
@@ -342,6 +306,12 @@
 <div class="copyright">
   © 2025 Kamelilo Day Secondary School. All rights reserved.
 </div>
+
+<script>
+  function toggleMenu() {
+    document.querySelector('nav').classList.toggle('active');
+  }
+</script>
 
 </body>
 </html>
