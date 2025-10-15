@@ -36,7 +36,7 @@
       font-weight: bold;
     }
 
-    /* ✅ MOBILE MENU */
+    /* MOBILE MENU */
     .menu-toggle {
       display: none;
       flex-direction: column;
@@ -49,6 +49,17 @@
       background: white;
       margin: 4px 0;
       border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .menu-toggle.active .bar1 {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-toggle.active .bar2 {
+      opacity: 0;
+    }
+    .menu-toggle.active .bar3 {
+      transform: rotate(-45deg) translate(6px, -6px);
     }
 
     .hero {
@@ -181,7 +192,7 @@
       font-size: 14px;
     }
 
-    /* ✅ MOBILE MENU STYLES */
+    /* MOBILE RESPONSIVE - BLOG STYLE */
     @media (max-width: 768px) {
       nav {
         display: none;
@@ -217,11 +228,11 @@
       <img src="images/logo.png" alt="Kamelilo Logo">
     </div>
 
-    <!-- ✅ MOBILE MENU ICON -->
+    <!-- MOBILE MENU ICON -->
     <div class="menu-toggle" id="mobile-menu">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span class="bar1"></span>
+      <span class="bar2"></span>
+      <span class="bar3"></span>
     </div>
 
     <nav>
@@ -359,10 +370,11 @@
       });
     });
 
-    // ✅ MOBILE MENU SCRIPT
+    // MOBILE MENU SCRIPT
     const mobileMenu = document.getElementById('mobile-menu');
     const nav = document.querySelector('nav');
     mobileMenu.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
       nav.classList.toggle('active');
     });
   </script>
