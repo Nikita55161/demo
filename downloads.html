@@ -46,9 +46,13 @@
       display: none;
       font-size: 24px;
       cursor: pointer;
+      background: transparent;
+      border: none;
+      color: white;
     }
 
     @media (max-width: 768px) {
+      /* hide nav by default on mobile (CSS fallback) */
       nav {
         display: none;
         flex-direction: column;
@@ -59,7 +63,7 @@
 
       nav a {
         padding: 10px 0;
-        border-top: 1px solid rgba(255,255,255,0.2);
+        border-top: 1px solid rgba(255,255,255,0.12);
         margin: 0;
       }
 
@@ -67,6 +71,7 @@
         display: block;
       }
 
+      /* helper in case nav has .active */
       nav.active {
         display: flex;
       }
@@ -213,8 +218,13 @@
   <div>
     <img src="images/logo.png" alt="Kamelilo Logo">
   </div>
-  <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-  <nav>
+
+  <!-- CHANGED to a proper button for accessibility; same visual -->
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars" aria-hidden="true"></i>
+  </button>
+
+  <nav id="main-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="academics.html">Academics</a>
@@ -248,20 +258,13 @@
 <section class="section">
   <h2>Past Papers for Revision</h2>
 
-  <button class="accordion-button">Mathematics</button>
+  <button class="accordion-button">Revision Paoers</button>
   <div class="accordion-content">
-    <a href="#">Math Paper 1</a>
-    <a href="#">Math Paper 2</a>
+    <a href="https://teacher.co.ke/k-c-s-e-past-papers-1996-2021/"">Revision Papers</a>
+   
   </div>
 
-  <button class="accordion-button">English</button>
-  <div class="accordion-content">
-    <a href="#">English Paper 1</a>
-    <a href="#">English Paper 2</a>
-    <a href="#">English Paper 3</a>
-  </div>
-
-  <!-- Continue same for other subjects -->
+  <!-- ... rest unchanged ... -->
 </section>
 
 <footer>
@@ -284,7 +287,7 @@
     <h4>Follow Us</h4>
     <div class="social-icons">
       <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
     </div>
   </div>
 </footer>
@@ -295,4 +298,58 @@
 
 <!-- JS -->
 <script>
-  // Accord
+  // Accordion
+  const buttons = document.querySelectorAll('.accordion-button');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      const content = btn.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+
+  // Mobile Menu - robust toggle using inline styles + aria-expanded
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      // hide
+      mainNav.style.display = 'none';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      // restore aria icon to bars
+      toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+    } else {
+      // show — ensure column layout on mobile
+      mainNav.style.display = 'flex';
+      mainNav.style.flexDirection = 'column';
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      // change icon to X
+      toggleBtn.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i>';
+    }
+  });
+
+  // Optional: close mobile nav when viewport becomes larger
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      mainNav.style.display = ''; // let CSS control desktop display
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+    } else {
+      // keep it hidden by default on small screens
+      if (toggleBtn.getAttribute('aria-expanded') !== 'true') {
+        mainNav.style.display = 'none';
+      }
+    }
+  });
+
+  // Ensure correct initial state on load
+  if (window.innerWidth <= 768) {
+    mainNav.style.display = 'none';
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  }
+</script>
+
+</body>
+</html>
