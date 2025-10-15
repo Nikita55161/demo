@@ -36,6 +36,12 @@
       font-weight: bold;
     }
 
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
     .hero {
       background: url('images/academics.jpeg') no-repeat center center/cover;
       height: 250px;
@@ -78,7 +84,7 @@
       min-width: 200px;
       background-color: #e6e6fa;
       padding: 15px;
-      border-left: 5px solid #002244;
+      border-left: 5px solid#002244;
       border-radius: 5px;
     }
 
@@ -166,23 +172,8 @@
       font-size: 14px;
     }
 
-    /* Hamburger menu */
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-   /* ✅ Responsive styles for mobile view */
+    /* --- Mobile Navbar (same as About page) --- */
     @media (max-width: 768px) {
-      nav {
-        diabsolute;
-        top: 70px;
-        right: 0;
-        width: 100%;
-        text-align: center;
-      }
-
       nav {
         display: none;
         flex-direction: column;
@@ -191,14 +182,17 @@
         top: 70px;
         right: 0;
         width: 100%;
-        max-height: 80vh; /* allows scrolling */
-        overflow-y: auto;  /* scroll if links overflow */
+        max-height: 90vh;
+        overflow-y: auto;
         text-align: center;
-        z-index: 999;
       }
 
       nav.active {
         display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
       }
 
       nav a {
@@ -215,7 +209,8 @@
     <div>
       <img src="images/logo.png" alt="Kamelilo Logo">
     </div>
-    <!-- Hamburger menu icon -->
+
+    <!-- Hamburger menu -->
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
     <nav>
@@ -301,14 +296,6 @@
       </div>
     </div>
   </section>
-  
-<!-- Lightbox Viewer -->
-<div class="lightbox" id="lightbox">
-  <span class="close" onclick="closeLightbox()">&times;</span>
-  <span class="prev" onclick="prevImage()">❮</span>
-  <img id="lightbox-img" src="" alt="">
-  <span class="next" onclick="nextImage()">❯</span>
-</div>
 
   <footer>
     <div class="footer-col">
@@ -330,7 +317,7 @@
       <h4>Follow Us</h4>
       <div class="social-icons">
          <a href="https://www.facebook.com/profile.php?id=100076262831006"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> whatsapp</a>
+         <a href="https://api.whatsapp.com/send?phone=%2B254700603107"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       </div>
     </div>
   </footer>
@@ -339,47 +326,36 @@
     © 2025 Kamelilo Day Secondary School. All rights reserved.
   </div>
 
- 
-<!-- ✅ Script for lightbox and mobile menu -->
-<script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const galleryImages = document.querySelectorAll('.gallery-grid img');
-  let currentIndex = 0;
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('nav');
+      nav.classList.toggle('active');
+    }
 
-  galleryImages.forEach((img, index) => {
-    img.addEventListener('click', () => {
-      lightbox.style.display = 'flex';
-      lightboxImg.src = img.src;
-      currentIndex = index;
+    document.addEventListener("DOMContentLoaded", () => {
+      const bars = document.querySelectorAll(".bar");
+
+      bars.forEach(bar => {
+        const target = +bar.getAttribute("data-target");
+        let width = 0;
+        const speed = target > 20 ? 10 : 50;
+
+        const update = () => {
+          if (width < target) {
+            width++;
+            bar.style.width = (width * 2) + "%";
+            bar.innerText = width;
+            setTimeout(update, speed);
+          } else {
+            bar.innerText = target;
+          }
+        };
+
+        update();
+      });
     });
-  });
+  </script>
 
-  function closeLightbox() {
-    lightbox.style.display = 'none';
-  }
-
-  function nextImage() {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    lightboxImg.src = galleryImages[currentIndex].src;
-  }
-
-  function prevImage() {
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    lightboxImg.src = galleryImages[currentIndex].src;
-  }
-
-  window.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') nextImage();
-    if (e.key === 'ArrowLeft') prevImage();
-  });
-
-  // ✅ Mobile menu toggle
-  function toggleMenu() {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('active');
-  }
-</script>
 </body>
 </html>
+
